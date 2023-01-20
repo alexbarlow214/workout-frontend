@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Exercises from "./Exercises";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [exercises, setExercises] = useState([])
+  useEffect(() => {
+    fetch("http://localhost:8002/exercise")
+      .then((res) => res.json())
+      .then((data) => setExercises(data.data));
+  }, []);
+  
+ return (
+  <>
+    <Exercises exercises = {exercises}/>
+    <input type="text" />
+  </>
+ );
 }
 
 export default App;
