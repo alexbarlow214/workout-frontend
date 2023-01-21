@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Exercises from "./Exercises";
+import { ColorModeContext, useMode } from './theme';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import {v4 as uuidv4} from 'uuid';
 
 function App() {
   const inputRef = useRef()
-
+  const [theme, colorMode] = useMode();
   async function handleInput(e){
     const name = inputRef.current.value
     await fetch("http://localhost:8002/exercise", {
@@ -41,9 +43,18 @@ function App() {
   
  return (
   <>
-    <Exercises exercises = {exercises}/>
-    <input type="text" ref={inputRef}/>
-    <button onClick={handleInput} >Click me! </button>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+          <CssBaseline/>
+          <div className = "app">
+            <main className ="content">
+              <Exercises exercises = {exercises}/>
+              <input type="text" ref={inputRef}/>
+              <button onClick={handleInput} >Click me! </button>
+            </main>
+          </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   </>
  );
 }
