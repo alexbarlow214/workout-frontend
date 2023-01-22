@@ -51,6 +51,7 @@ function App() {
               <Exercises exercises = {exercises}/>
               <input type="text" ref={inputRef}/>
               <button onClick={handleInput} >Click me! </button>
+              <button onClick={colorMode.toggleColorMode} >Switch </button>
             </main>
           </div>
       </ThemeProvider>
