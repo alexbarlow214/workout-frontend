@@ -2,11 +2,11 @@ import {Box, IconButton, useTheme, InputBase} from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 
-import { LightModeOutlinedIcon } from "@mui/icons-material/LightModeOutlined";
-import { DarkModeOutlinedIcon } from "@mui/icons-material/DarkModeOutlined";
-import { NotificationsOutlinedIcon } from "@mui/icons-material/NotificationsOutlined";
-import { SettingsOutlinedIcon } from "@mui/icons-material/SettingsOutlined";
-import { PersonOutlinedIcon } from "@mui/icons-material/PersonOutlined";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import SettingsIcon from '@mui/icons-material/Settings';
+import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 
 
@@ -14,7 +14,7 @@ const TopBar = () =>{
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
     const colorMode = useContext(ColorModeContext)
-    return(<Box display = "flex" justifyContent="space-between" p={2}>
+    return(<Box display = "flex" justifyContent="space-between" p={2} >
         {/* search nar*/}
         <Box 
             display="flex" 
@@ -25,8 +25,25 @@ const TopBar = () =>{
             <IconButton type="button" sx={{p: 1}}>
                 <SearchIcon/>
             </IconButton>
+        </Box >
+        {/* ICONS */}
+        <Box display = "flex" >
+            <IconButton onClick ={colorMode.toggleColorMode}>
+                {theme.palette.mode === 'light' ? (
+                <LightModeIcon/> ) : (
+                    <DarkModeIcon/>
+                )}
+            </IconButton>
+            <IconButton>
+                <NotificationsIcon/>
+            </IconButton>
+            <IconButton>
+                <SettingsIcon/>
+            </IconButton>
+            <IconButton>
+                <PersonIcon/>
+            </IconButton>
         </Box>
-        <IconButton sx={{display: "flex"}}></IconButton>
     </Box>)
 }
 
