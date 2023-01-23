@@ -3,6 +3,7 @@ import Exercises from "./Exercises";
 import { ColorModeContext, useMode } from './theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import {v4 as uuidv4} from 'uuid';
+import Topbar from "./scenes/global/TopBar"
 
 function App() {
   const inputRef = useRef()
@@ -48,6 +49,7 @@ function App() {
           <CssBaseline/>
           <div className = "app">
             <main className ="content">
+              <Topbar />
               <Exercises exercises = {exercises}/>
               <input type="text" ref={inputRef}/>
               <button onClick={handleInput} >Click me! </button>
