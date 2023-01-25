@@ -68,3 +68,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Dashboard =>
+    Enter workout data
+    Split info(what day use is on OR tell use to create split),
+    Graph Widget, 
+    Calendar Widget(github style) 
+
+Workout enter(starting from template)
+Split Creator
+Graph
+Calendar
+Educational Videos
+
+Popups? Custom workout, wokrout templates
+
+
+Static website with two sections: Free App Features, Overload+ Features

@@ -1,4 +1,4 @@
-import {Box, IconButton, useTheme, InputBase} from "@mui/material";
+import {Box, IconButton, useTheme, InputBase, Typography} from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 
@@ -10,12 +10,27 @@ import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 
 
+
 const TopBar = () =>{
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
     const colorMode = useContext(ColorModeContext)
     return(<Box display = "flex" justifyContent="space-between" p={2} >
         {/* search nar*/}
+        {/* <Box display="flex" alignItems="center" > */}
+        <Box display="flex" ml = "10px"
+                                justifyContent="center"
+                                alignItems="center">
+                                <img 
+                                    alt="profile-user"
+                                    width = "204.67px"
+                                    height = "53.67px"
+                                    src = {`../../newest.png`}
+                                    
+                                />
+                            </Box>
+            {/* <Typography variant = "h2" color={colors.greenAccent[500]} ml="20px">Overload</Typography> */}
+        {/* </Box> */}
         <Box 
             display="flex" 
             backgroundColor={colors.primary[400]}
@@ -27,7 +42,7 @@ const TopBar = () =>{
             </IconButton>
         </Box >
         {/* ICONS */}
-        <Box display = "flex" >
+        <Box alignItems="center" display="flex" >
             <IconButton onClick ={colorMode.toggleColorMode}>
                 {theme.palette.mode === 'light' ? (
                 <LightModeIcon/> ) : (
