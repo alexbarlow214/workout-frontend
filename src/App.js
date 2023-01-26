@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Exercises from "./Exercises";
 import { ColorModeContext, useMode } from './theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import {v4 as uuidv4} from 'uuid';
 import Topbar from "./scenes/global/TopBar"
 import Home from "./scenes/home"
+import Workouts from "./scenes/workouts"
 import SideBar from "./scenes/global/SideBar"
 import { Route, Routes } from 'react-router-dom';
 import "./index.css"
@@ -56,6 +56,7 @@ function App() {
               <Topbar />
               <Routes>
                 <Route path = "/" element ={<Home />} />
+                <Route path = "/workouts" element ={<Workouts />} />
               </Routes>
               {/* <Exercises exercises = {exercises}/>
               <input type="text" ref={inputRef}/>
