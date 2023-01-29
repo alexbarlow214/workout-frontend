@@ -26,10 +26,10 @@ function App() {
   })
 })
     
-    setRetrieve(oldEx => {
-      return !oldEx
-    })
-    console.log(shouldRetrieve)
+    // setRetrieve(oldEx => {
+    //   return !oldEx
+    // })
+    // console.log(shouldRetrieve)
     console.log(name)
 
   }
@@ -37,14 +37,14 @@ function App() {
   // const [exercises2, setExercises2] = useState([{id: 1, name: "hi"}, {id:2, name: "hello"}])
 
 
-  const[shouldRetrieve, setRetrieve] = useState(true)
+  // const[shouldRetrieve, setRetrieve] = useState(true)
 
-  const [exercises, setExercises] = useState([])
-  useEffect(() => {
-    fetch("http://localhost:8002/exercise")
-      .then((res) => res.json())
-      .then((data) => setExercises(data.data));
-  }, [shouldRetrieve]);
+  // const [exercises, setExercises] = useState([])
+  // useEffect(() => {
+  //   fetch("http://localhost:8002/exercise")
+  //     .then((res) => res.json())
+  //     .then((data) => setExercises(data.data));
+  // }, [shouldRetrieve]);
   
  return (
     <ColorModeContext.Provider value={colorMode}>

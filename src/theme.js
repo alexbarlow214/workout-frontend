@@ -198,15 +198,15 @@ export const tokens = (mode) => ({
         },
         
         primary: {
-            100: "#040509",
-            200: "#080b12",
-            300: "#0c101b",
-            400: "#f2f0f0",
-            500: "#141b2d",
-            600: "#434957",
-            700: "#727681",
-            800: "#a1a4ab",
-            900: "#d0d1d5",
+            100: "#e4edfa",
+            200: "#cadbf5",
+            300: "#afc9ef",
+            400: "#95b7ea",
+            500: "#7aa5e5",
+            600: "#6284b7",
+            700: "#496389",
+            800: "#31425c",
+            900: "#18212e"
         },
         yellow: {
             100: "#fff7ce",
@@ -295,7 +295,7 @@ export const themeSettings = (mode) => {
                 }
             } : {
                 primary: {
-                    main: colors.primary[100]
+                    main: colors.primary[400]
                 },
                 secondary: {
                     main: colors.greenAccent[500]
@@ -306,13 +306,13 @@ export const themeSettings = (mode) => {
                     light: colors.grey[100]
                 },
                 background: {      
-                    default: "#fcfcfc",
+                    default: colors.primary[500],
                 }
             }
         },
         typography : {
             fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-            fontSize: 12,
+            fontSize: 20,
             h1: {
                 fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
                 fontSize: 40

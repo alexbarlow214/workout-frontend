@@ -72,8 +72,7 @@ const SideBar = () =>{
                                 alignItems="center"
                                 ml="15px"
                             >
-                                <Typography variant="h3" color={colors.grey[100]}>
-                                    
+                                <Typography variant="h2" color={colors.grey[100]}>                              
                                 </Typography>
                                 <IconButton onClick = {() => setIsCollasped(!isCollasped)}>
                                     <MenuIcon />
@@ -114,7 +113,7 @@ const SideBar = () =>{
                             setSelected={setSelected}
                         />
                         {!isCollasped ? (
-                        <Typography variant ="h4" color={colors.grey[500]} sx={{m: "15px 0 5px 20px"}}>
+                        <Typography variant ="h3" color={colors.grey[500]} sx={{m: "15px 0 5px 20px"}}>
                             Manage Workouts
                         </Typography>
                         ) : (<Divider sx={{m: "15px 0 15px 0"}}/>)}
@@ -127,7 +126,7 @@ const SideBar = () =>{
                         />
                         <Item 
                         title = "Create Workouts"
-                        to = "/"
+                        to = "/workouts"
                         icon = {<LibraryAddRoundedIcon/>}
                         selected={selected}
                         setSelected={setSelected}
@@ -140,7 +139,7 @@ const SideBar = () =>{
                             setSelected={setSelected}
                         />                                           
                         {!isCollasped ? (
-                        <Typography variant ="h4" color={colors.grey[500]} sx={{m: "15px 0 5px 20px"}}>
+                        <Typography variant ="h3" color={colors.grey[500]} sx={{m: "15px 0 5px 20px"}}>
                             Analytics
                         </Typography>)
                          : (<Divider sx={{m: "15px 0 15px 0"}}/>)}
@@ -159,7 +158,7 @@ const SideBar = () =>{
                             setSelected={setSelected}
                         />
                         {!isCollasped ? (
-                        <Typography variant ="h4" color={colors.grey[500]} sx={{m: "15px 0 5px 20px"}}>
+                        <Typography variant ="h3" color={colors.grey[500]} sx={{m: "15px 0 5px 20px"}}>
                             Community
                         </Typography>)
                         : (<Divider sx={{m: "15px 0 15px 0"}}/>)}
