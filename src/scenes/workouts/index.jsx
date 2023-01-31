@@ -1,13 +1,13 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import Exercises from "../../Exercises";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Typography, useTheme, Divider, CheckBox } from "@mui/material";
 import { useState, useEffect, inputRef } from "react";
 import Header from "../../components/Header";
 import { mock } from "./mock";
 import FitnessCenterOutlinedIcon from "@mui/icons-material/FitnessCenterOutlined";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function Workouts() {
   const theme = useTheme();
@@ -23,7 +23,8 @@ export default function Workouts() {
       field: "type",
       headerName: "Type",
       headerAlign: "center",
-      flex: 1,
+      flex: 0,
+      width: 150,
       align: "center",
       renderCell: ({ row: { type } }) => {
         return (
@@ -34,30 +35,43 @@ export default function Workouts() {
             display="flex"
             justifyContent="center"
           >
-            
             {type === "Chest" && (
-              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.greenAccent[400]}} />
+              <FitnessCenterOutlinedIcon
+                sx={{ mr: "10px" }}
+                style={{ color: colors.greenAccent[400] }}
+              />
             )}
             {type === "Legs" && (
-              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.greenAccent[700]}} />
+              <FitnessCenterOutlinedIcon
+                sx={{ mr: "10px" }}
+                style={{ color: colors.greenAccent[700] }}
+              />
             )}
             {type === "Bicep" && (
-              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.blueAccent[400]}} />
+              <FitnessCenterOutlinedIcon
+                sx={{ mr: "10px" }}
+                style={{ color: colors.blueAccent[400] }}
+              />
             )}
             {type === "Tricep" && (
-              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.blueAccent[700]}} />
-              
+              <FitnessCenterOutlinedIcon
+                sx={{ mr: "10px" }}
+                style={{ color: colors.blueAccent[700] }}
+              />
             )}
             {type === "Back" && (
-              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.redAccent[700]}} />
+              <FitnessCenterOutlinedIcon
+                sx={{ mr: "10px" }}
+                style={{ color: colors.redAccent[700] }}
+              />
             )}
             {type === "Sholder" && (
-              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.redAccent[400]}} />
-              
+              <FitnessCenterOutlinedIcon
+                sx={{ mr: "10px" }}
+                style={{ color: colors.redAccent[400] }}
+              />
             )}
-            <Typography >
-                {type}
-              </Typography>
+            <Typography variant="h4">{type}</Typography>
           </Box>
         );
       },
@@ -66,22 +80,50 @@ export default function Workouts() {
       field: "PR",
       headerName: "PR",
       headerAlign: "center",
-      flex: 1,
+      flex: 0,
+      width:  150,
       align: "center",
-    },  
+      renderCell: ({ row: { PR } }) => {
+        var a = PR.split("X");
+        const forS = " for ";
+        return (
+          <>
+            <Typography mr={1} color={colors.gold[400]} variant="h4">
+              {a[0]}{" "}
+            </Typography>
+            <Typography>for</Typography>
+            <Typography ml={1} color={colors.red[400]} variant="h4">
+              {" "}
+              {a[1]}
+            </Typography>
+          </>
+        );
+      },
+    },
     {
       field: "edit",
       headerName: "Modify",
       headerAlign: "left",
       align: "center",
       flex: 0,
+      width: 100,
       renderCell: ({ row: { edit } }) => {
-        return <Box display="flex" justifyContent="center">
-          {edit === 1 && (<IconButton><EditIcon /></IconButton>) }
-          {edit === 1 && (<IconButton><DeleteIcon sx={{color: `${colors.redAccent[600]} `}} /> </IconButton>) }
-        </Box>
-      }
-    }  
+        return (
+          <Box display="flex" justifyContent="center">
+            {edit === 1 && (
+              <IconButton>
+                <EditIcon />
+              </IconButton>
+            )}
+            {edit === 1 && (
+              <IconButton>
+                <DeleteIcon sx={{ color: `${colors.redAccent[600]} ` }} />{" "}
+              </IconButton>
+            )}
+          </Box>
+        );
+      },
+    },
   ];
   async function handleInput(e) {
     const name = inputRef.current.value;
@@ -115,23 +157,67 @@ export default function Workouts() {
 
   return (
     <Box m="20px">
-      <Header title="TEAM" subtitle="Managing the Team Members" />
-      <Box
-        m="40px 0 0 0"
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": { border: "none", fontSize: "1.5rem" },
-          "& .MuiDataGrid-cell": { border: "none" },
-          "& .name-column-cell": {border: "none", fontWeight: "bold"},
-          "& .MuiDataGrid-columnHeaders": { backgroundColor: colors.primary[700], borderBottom: "none"},
-          "& .MuiDataGrid-footerContainer": {borderTop: "none", backgroundColor: colors.blueAccent[700]}
-          
-        }}
-        
-      >
-        {console.log(theme.typography.h2.fontSize)}
-        {/* {console.log(exercises)} */}
-        <DataGrid rows={mock} columns={columns} />
+      <Box display="flex" sx={{ flexDirection: "row" }}>
+        <Box
+          flex="1"
+          mr="20px"
+          height="83vh"
+          sx={{
+            "& .MuiDataGrid-root": { border: "none", fontSize: "1.25rem" },
+            "& .MuiDataGrid-cell": { border: "none" },
+            "& .name-column-cell": { border: "none", fontWeight: "bold" },
+            "& .MuiDataGrid-columnHeaders": {
+              backgroundColor: colors.primary[600],
+              borderBottom: "none",
+            },
+            "& .MuiDataGrid-footerContainer": {
+              borderTop: "none",
+              backgroundColor: colors.primary[600],
+            },
+          }}
+        >
+          <Typography align="center" variant="h2" color={colors.grey[100]} fontWeight="bold" mb="20px">Exercises</Typography>
+          <DataGrid
+            rows={mock}
+            columns={columns}
+            rowsPerPageOptions={[13]}
+            pageSize={13}
+            checkboxSelection="true"
+          />
+        </Box>
+        <Divider
+          flexItem="true"
+          orientation="vertical"
+          flex="1"
+          sx={{ bgcolor: colors.grey[300] }}
+        />
+        <Box
+          flex="1"
+          ml="20px"
+          height="77vh"
+          sx={{
+            "& .MuiDataGrid-root": { border: "none", fontSize: "1.25rem" },
+            "& .MuiDataGrid-cell": { border: "none" },
+            "& .name-column-cell": { border: "none", fontWeight: "bold" },
+            "& .MuiDataGrid-columnHeaders": {
+              backgroundColor: colors.primary[600],
+              borderBottom: "none",
+            },
+            "& .MuiDataGrid-footerContainer": {
+              borderTop: "none",
+              backgroundColor: colors.primary[600],
+            },
+          }}
+        >
+          {console.log(theme.typography.h2.fontSize)}
+          {/* {console.log(exercises)} */}
+          <DataGrid
+            rows={mock}
+            columns={columns}
+            rowsPerPageOptions={[12]}
+            pageSize={12}
+          />
+        </Box>
       </Box>
     </Box>
   );

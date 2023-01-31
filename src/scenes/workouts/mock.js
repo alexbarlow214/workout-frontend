@@ -76,5 +76,54 @@ export const mock = [
         PR: "15X9",
         edit: 1
     },
+    {
+        id: 12,
+        name: "Latteral Raise",
+        type: "Sholder",
+        PR: "15X9",
+        edit: 1
+    },
+    {
+        id: 13,
+        name: "Latteral Raise",
+        type: "Sholder",
+        PR: "15X9",
+        edit: 1
+    },
+    {
+        id: 14,
+        name: "Latteral Raise",
+        type: "Sholder",
+        PR: "15X9",
+        edit: 1
+    },
+    {
+        id: 15,
+        name: "Latteral Raise",
+        type: "Sholder",
+        PR: "15X9",
+        edit: 1
+    },
+    {
+        id: 16,
+        name: "Latteral Raise",
+        type: "Sholder",
+        PR: "15X9",
+        edit: 1
+    },
+    {
+        id: 17,
+        name: "Latteral Raise",
+        type: "Sholder",
+        PR: "15X9",
+        edit: 1
+    },
+    {
+        id: 18,
+        name: "Latteral Raise",
+        type: "Sholder",
+        PR: "15X9",
+        edit: 1
+    },
 
 ]

@@ -47,10 +47,10 @@ const SideBar = () =>{
                 padding: "5px 35px 5px 20px !important"
             },
             "& .pro-inner-item:hover": {
-                color: `${colors.cherryRed[600]} !important`
+                color: `${colors.red[500]} !important`
             },
             "& .pro-menu-item.active": {
-                color: `${colors.cherryRed[600]} !important`            
+                color: `${colors.red[500]} !important`            
             },
             
 
@@ -104,7 +104,7 @@ const SideBar = () =>{
                     </Box>
                     )}
                     {/* Menu Items */}
-                    <Box paddingLeft={isCollasped ? undefined : "10%"}>
+                    <Box paddingLeft={isCollasped ? undefined : "9%"}>
                         <Item 
                             title = "Home"
                             to = "/"
