@@ -1,7 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import Exercises from "../../Exercises";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { useState, useEffect, inputRef } from "react";
 import Header from "../../components/Header";
 import { mock } from "./mock";
@@ -34,27 +34,30 @@ export default function Workouts() {
             display="flex"
             justifyContent="center"
           >
-            <FitnessCenterOutlinedIcon sx={{ mr: "10px" }} />
+            
             {type === "Chest" && (
-              <Typography color={colors.greenAccent[400]}>{"Chest"}</Typography>
+              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.greenAccent[400]}} />
             )}
             {type === "Legs" && (
-              <Typography color={colors.greenAccent[700]}>{"Legs"}</Typography>
+              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.greenAccent[700]}} />
             )}
             {type === "Bicep" && (
-              <Typography color={colors.blueAccent[400]}>{"Bicep"}</Typography>
+              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.blueAccent[400]}} />
             )}
             {type === "Tricep" && (
-              <Typography color={colors.greenAccent[700]}>
-                {"Tricep"}
-              </Typography>
+              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.blueAccent[700]}} />
+              
             )}
             {type === "Back" && (
-              <Typography color={colors.redAccent[700]}>{"Back"}</Typography>
+              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.redAccent[700]}} />
             )}
             {type === "Sholder" && (
-              <Typography color={colors.redAccent[400]}>{"Sholder"}</Typography>
+              <FitnessCenterOutlinedIcon sx={{ mr: "10px"}} style = {{color: colors.redAccent[400]}} />
+              
             )}
+            <Typography >
+                {type}
+              </Typography>
           </Box>
         );
       },
@@ -74,8 +77,8 @@ export default function Workouts() {
       flex: 0,
       renderCell: ({ row: { edit } }) => {
         return <Box display="flex" justifyContent="center">
-          {edit === 1 && (<EditIcon />) }
-          {edit === 1 && (<DeleteIcon sx={{ml:"10px",  color: `${colors.redAccent[600]} !important`}} />) }
+          {edit === 1 && (<IconButton><EditIcon /></IconButton>) }
+          {edit === 1 && (<IconButton><DeleteIcon sx={{color: `${colors.redAccent[600]} `}} /> </IconButton>) }
         </Box>
       }
     }  
@@ -119,7 +122,7 @@ export default function Workouts() {
         sx={{
           "& .MuiDataGrid-root": { border: "none", fontSize: "1.5rem" },
           "& .MuiDataGrid-cell": { border: "none" },
-          "& .name-column-cell": {border: "none", color: colors.gold[500]},
+          "& .name-column-cell": {border: "none", fontWeight: "bold"},
           "& .MuiDataGrid-columnHeaders": { backgroundColor: colors.primary[700], borderBottom: "none"},
           "& .MuiDataGrid-footerContainer": {borderTop: "none", backgroundColor: colors.blueAccent[700]}
           

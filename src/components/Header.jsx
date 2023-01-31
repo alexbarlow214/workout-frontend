@@ -11,7 +11,7 @@ export default function Header({title, subtitle}) {
         <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{mb: "5px"}}>
             {title}
         </Typography>
-        <Typography variant ="h5" color={colors.gold[400]}>
+        <Typography variant ="h4" color={colors.red[500]}>
             {subtitle}
         </Typography>
     </Box>
