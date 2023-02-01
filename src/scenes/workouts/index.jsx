@@ -1,13 +1,23 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import Exercises from "../../Exercises";
-import { Box, IconButton, Typography, useTheme, Divider, CheckBox } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  Typography,
+  useTheme,
+  Divider,
+  CheckBox,
+  Button,
+} from "@mui/material";
 import { useState, useEffect, inputRef } from "react";
 import Header from "../../components/Header";
 import { mock } from "./mock";
 import FitnessCenterOutlinedIcon from "@mui/icons-material/FitnessCenterOutlined";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { borderColor } from "@mui/system";
+import AddCircleSharpIcon from '@mui/icons-material/AddCircleSharp';
 
 export default function Workouts() {
   const theme = useTheme();
@@ -28,13 +38,7 @@ export default function Workouts() {
       align: "center",
       renderCell: ({ row: { type } }) => {
         return (
-          <Box
-            width="60%"
-            m="0 auto"
-            p="5px"
-            display="flex"
-            justifyContent="center"
-          >
+          <>
             {type === "Chest" && (
               <FitnessCenterOutlinedIcon
                 sx={{ mr: "10px" }}
@@ -72,7 +76,7 @@ export default function Workouts() {
               />
             )}
             <Typography variant="h4">{type}</Typography>
-          </Box>
+          </>
         );
       },
     },
@@ -81,7 +85,7 @@ export default function Workouts() {
       headerName: "PR",
       headerAlign: "center",
       flex: 0,
-      width:  150,
+      width: 150,
       align: "center",
       renderCell: ({ row: { PR } }) => {
         var a = PR.split("X");
@@ -176,7 +180,45 @@ export default function Workouts() {
             },
           }}
         >
-          <Typography align="center" variant="h2" color={colors.grey[100]} fontWeight="bold" mb="20px">Exercises</Typography>
+          <Box
+            flex="1"
+            display="flex"
+            sx={{ flexDirection: "row" }}
+            alignItems="center"
+            mb="15px"
+          >
+            <Typography
+              justifyContent="center"
+              flex="1"
+              align="center"
+              variant="h2"
+              color={colors.grey[100]}
+              fontWeight="bold"
+            >
+              Exercises
+            </Typography>
+            <Button
+              flex="1"
+              align="right"
+              sx={{
+                color: "black",
+                backgroundColor: colors.greenAccent[600],
+                borderRadius: 2,
+                borderColor: colors.greenAccent[600],
+                typography: "h4",
+                fontWeight: "bold",
+                '&:hover': {
+                  color: colors.greenAccent[600],
+                  backgroundColor: "white",
+                  borderColor:  colors.greenAccent[600]
+                },
+              }}
+              startIcon={<AddCircleSharpIcon />}
+              variant="outlined"
+            >
+              New
+            </Button>
+          </Box>
           <DataGrid
             rows={mock}
             columns={columns}

@@ -104,7 +104,7 @@ const SideBar = () =>{
                     </Box>
                     )}
                     {/* Menu Items */}
-                    <Box paddingLeft={isCollasped ? undefined : "9%"}>
+                    <Box paddingLeft={isCollasped ? undefined : "5%"}>
                         <Item 
                             title = "Home"
                             to = "/"
@@ -125,7 +125,7 @@ const SideBar = () =>{
                             setSelected={setSelected}
                         />
                         <Item 
-                        title = "Create Workouts"
+                        title = "Manage Workouts"
                         to = "/workouts"
                         icon = {<LibraryAddRoundedIcon/>}
                         selected={selected}
