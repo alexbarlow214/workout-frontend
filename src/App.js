@@ -8,6 +8,7 @@ import Workouts from "./scenes/workouts"
 import SideBar from "./scenes/global/SideBar"
 import { Route, Routes } from 'react-router-dom';
 import "./index.css"
+import Calendar from './scenes/calendar';
 
 function App() {
   const inputRef = useRef()
@@ -57,6 +58,7 @@ function App() {
               <Routes>
                 <Route path = "/" element ={<Home />} />
                 <Route path = "/workouts" element ={<Workouts />} />
+                <Route path = "/calendar" element ={<Calendar />} />
               </Routes>
               {/* <Exercises exercises = {exercises}/>
               <input type="text" ref={inputRef}/>

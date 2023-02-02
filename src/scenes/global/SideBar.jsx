@@ -145,7 +145,7 @@ const SideBar = () =>{
                          : (<Divider sx={{m: "15px 0 15px 0", bgcolor: colors.grey[300]}}/>)}
                         <Item 
                             title = "Frequency"
-                            to = "/"
+                            to = "/calendar"
                             icon = {<DateRangeIcon/>}
                             selected={selected}
                             setSelected={setSelected}
